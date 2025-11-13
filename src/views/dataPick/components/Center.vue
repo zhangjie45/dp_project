@@ -4,7 +4,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import { loadBMap } from '../../../utils/map'
+import { loadBMap } from '@/utils/map'
 import * as echarts from 'echarts'
 import { onMounted, ref } from 'vue'
 import geoJson from '../../../assets/json/cn_full.json'
@@ -826,6 +826,7 @@ export default { name: 'CenterVue' }
 
     top: 0;
     left: 0;
+
     // background-color: aqua;
     #main {
         height: 100%;
