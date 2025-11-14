@@ -9,6 +9,17 @@
      font-weight: normal;
  }
 
+ @font-face {
+     /* 给自定义字体取个名字，后面可以用这个名字引用字体 */
+     font-family: 'huningFont';
+     /* 字体文件的路径，这里假设字体文件在当前目录下 */
+     src        : url('./font/huningFont.ttf');
+     /* 可选的字体样式，如 normal 或 italic */
+     font-style : normal;
+     /* 可选的字体粗细，如 normal 或 bold */
+     font-weight: normal;
+ }
+
  * {
      margin    : 0;
      padding   : 0;

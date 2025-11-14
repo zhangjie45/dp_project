@@ -44,6 +44,13 @@ const routes = [
 
         ]
     },
+    //沪宁电梯
+    {
+        path: '/huning',
+        name: 'hnd',
+        component: () => import('../views/huning/dataPick/index.vue')
+
+    }
 
 ]
 

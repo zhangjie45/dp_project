@@ -3,7 +3,7 @@ import { parseTime } from './common'
 /**
  * 表格时间格式化
  */
-export function formatParamsDate(date = new Date(), format = 'YYYY-MM-DD HH:mm:ss') {
+export function formatParamsDate (date = new Date(), format = 'YYYY-MM-DD HH:mm:ss') {
     if (!date) return ''
 
     // 如果传入的不是 Date 对象，转换为 Date 对象
@@ -35,7 +35,7 @@ export function formatParamsDate(date = new Date(), format = 'YYYY-MM-DD HH:mm:s
 /**
  * 表格时间格式化
  */
-export function formatDate(cellValue) {
+export function formatDate (cellValue) {
     if (cellValue == null || cellValue == '') return ''
     var date = new Date(cellValue)
     var year = date.getFullYear()
@@ -52,7 +52,7 @@ export function formatDate(cellValue) {
  * @param {string} option
  * @returns {string}
  */
-export function formatTime(time, option) {
+export function formatTime (time, option) {
     if (('' + time).length === 10) {
         time = parseInt(time) * 1000
     } else {
@@ -84,7 +84,7 @@ export function formatTime(time, option) {
  * @param {string} url
  * @returns {Object}
  */
-export function getQueryObject(url) {
+export function getQueryObject (url) {
     url = url == null ? window.location.href : url
     const search = url.substring(url.lastIndexOf('?') + 1)
     const obj = {}
@@ -103,7 +103,7 @@ export function getQueryObject(url) {
  * @param {string} input value
  * @returns {number} output value
  */
-export function byteLength(str) {
+export function byteLength (str) {
     // returns the byte length of an utf8 string
     let s = str.length
     for (var i = str.length - 1; i >= 0; i--) {
@@ -119,7 +119,7 @@ export function byteLength(str) {
  * @param {Array} actual
  * @returns {Array}
  */
-export function cleanArray(actual) {
+export function cleanArray (actual) {
     const newArray = []
     for (let i = 0; i < actual.length; i++) {
         if (actual[i]) {
@@ -133,7 +133,7 @@ export function cleanArray(actual) {
  * @param {Object} json
  * @returns {Array}
  */
-export function param(json) {
+export function param (json) {
     if (!json) return ''
     return cleanArray(
         Object.keys(json).map((key) => {
@@ -147,7 +147,7 @@ export function param(json) {
  * @param {string} url
  * @returns {Object}
  */
-export function param2Obj(url) {
+export function param2Obj (url) {
     const search = decodeURIComponent(url.split('?')[1]).replace(/\+/g, ' ')
     if (!search) {
         return {}
@@ -169,7 +169,7 @@ export function param2Obj(url) {
  * @param {string} val
  * @returns {string}
  */
-export function html2Text(val) {
+export function html2Text (val) {
     const div = document.createElement('div')
     div.innerHTML = val
     return div.textContent || div.innerText
@@ -181,7 +181,7 @@ export function html2Text(val) {
  * @param {(Object|Array)} source
  * @returns {Object}
  */
-export function objectMerge(target, source) {
+export function objectMerge (target, source) {
     if (typeof target !== 'object') {
         target = {}
     }
@@ -203,7 +203,7 @@ export function objectMerge(target, source) {
  * @param {HTMLElement} element
  * @param {string} className
  */
-export function toggleClass(element, className) {
+export function toggleClass (element, className) {
     if (!element || !className) {
         return
     }
@@ -221,7 +221,7 @@ export function toggleClass(element, className) {
  * @param {string} type
  * @returns {Date}
  */
-export function getTime(type) {
+export function getTime (type) {
     if (type === 'start') {
         return new Date().getTime() - 3600 * 1000 * 24 * 90
     } else {
@@ -235,7 +235,7 @@ export function getTime(type) {
  * @param {boolean} immediate
  * @return {*}
  */
-export function debounce(func, wait, immediate) {
+export function debounce (func, wait, immediate) {
     let timeout, args, context, timestamp, result
 
     const later = function () {
@@ -277,7 +277,7 @@ export function debounce(func, wait, immediate) {
  * @param {Object} source
  * @returns {Object}
  */
-export function deepClone(source) {
+export function deepClone (source) {
     if (!source && typeof source !== 'object') {
         throw new Error('error arguments', 'deepClone')
     }
@@ -296,14 +296,14 @@ export function deepClone(source) {
  * @param {Array} arr
  * @returns {Array}
  */
-export function uniqueArr(arr) {
+export function uniqueArr (arr) {
     return Array.from(new Set(arr))
 }
 
 /**
  * @returns {string}
  */
-export function createUniqueString() {
+export function createUniqueString () {
     const timestamp = +new Date() + ''
     const randomNum = parseInt((1 + Math.random()) * 65536) + ''
     return (+(randomNum + timestamp)).toString(32)
@@ -315,7 +315,7 @@ export function createUniqueString() {
  * @param {string} cls
  * @returns {boolean}
  */
-export function hasClass(ele, cls) {
+export function hasClass (ele, cls) {
     return !!ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'))
 }
 
@@ -324,7 +324,7 @@ export function hasClass(ele, cls) {
  * @param {HTMLElement} elm
  * @param {string} cls
  */
-export function addClass(ele, cls) {
+export function addClass (ele, cls) {
     if (!hasClass(ele, cls)) ele.className += ' ' + cls
 }
 
@@ -333,14 +333,14 @@ export function addClass(ele, cls) {
  * @param {HTMLElement} elm
  * @param {string} cls
  */
-export function removeClass(ele, cls) {
+export function removeClass (ele, cls) {
     if (hasClass(ele, cls)) {
         const reg = new RegExp('(\\s|^)' + cls + '(\\s|$)')
         ele.className = ele.className.replace(reg, ' ')
     }
 }
 
-export function makeMap(str, expectsLowerCase) {
+export function makeMap (str, expectsLowerCase) {
     const map = Object.create(null)
     const list = str.split(',')
     for (let i = 0; i < list.length; i++) {
@@ -393,23 +393,23 @@ export const beautifierConf = {
 }
 
 // 首字母大小
-export function titleCase(str) {
+export function titleCase (str) {
     return str.replace(/( |^)[a-z]/g, (L) => L.toUpperCase())
 }
 
 // 下划转驼峰
-export function camelCase(str) {
+export function camelCase (str) {
     return str.replace(/_[a-z]/g, (str1) => str1.substr(-1).toUpperCase())
 }
 /**
  * 驼峰转换下划线
  * @param { String } name
  */
-export function toLine(name) {
-  return name.replace(/([A-Z])/g, '_$1').toLowerCase()
+export function toLine (name) {
+    return name.replace(/([A-Z])/g, '_$1').toLowerCase()
 }
 
-export function isNumberStr(str) {
+export function isNumberStr (str) {
     return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/g.test(str)
 }
 
@@ -420,12 +420,18 @@ export const fitChartSize = (size, defalteWidth = 1920) => {
     let scale = clientWidth / defalteWidth //比例
     return Number((size * scale).toFixed(3))
 }
+export const fitChartSizeHN = (size, defalteWidth = 9600) => {
+    let clientWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+    if (!clientWidth) return size
+    let scale = clientWidth / defalteWidth //比例
+    return Number((size * scale).toFixed(3))
+}
 
 /**
  * 参数处理
  * @param {*} params  参数
  */
-export function tansParams(params) {
+export function tansParams (params) {
     let result = ''
     for (const propName of Object.keys(params)) {
         const value = params[propName]
